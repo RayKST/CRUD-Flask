@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/main.css">
+    <title>Flask Crud</title>
+</head>
+
+<body>
+
+    <h1>CRUD Produtos</h1>
+    <div class="data-products">
+        <h1> Tabela Produtos</h1>
+        {% for d in products %}
+            {% for x in d %}
+                <p> {{ x }} </p>
+            {% endfor %}
+        {% endfor %}
+
+        <button>Create Product</button>
+        <button>Delete Product</button>
+        <button>Update Product</button>
+        
+    </div>
+
+    <div class="data-categorys">
+        <h1> Tabela Categorias </h1>
+        {% for d in categorys %}
+            {% for x in d %}
+                <p> {{ x }} </p>
+            {% endfor %}
+        {% endfor %}
+
+        <button>Create Category</button>
+        <button>Delete Category</button>
+        <button>Update Category</button>
+        
+    </div>
+    
+</body>
+</html>
