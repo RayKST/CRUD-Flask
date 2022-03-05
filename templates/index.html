@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/main.css">
+    <link rel="stylesheet" href="static/index.css">
     <title>Flask Crud</title>
 </head>
 
@@ -13,11 +17,22 @@
     <h1 >CRUD Produtos</h1>
     <div class="data-products">
         <h1> Tabela Produtos</h1>
-        {% for d in products %}
-            {% for x in d %}
-                <p> {{ x }} </p>
-            {% endfor %}
-        {% endfor %}
+        <table>
+            <tr class="table-top">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Category Id</th>
+            </tr>       
+                {% for d in products %}
+                    <tr>
+                    </tr>
+                    {% for x in d %}
+                        <td> {{ x }}</td>
+                    {% endfor %}
+                {% endfor %}   
+        </table>
 
         <button><a href='{{url_for("create_products")}}'>Create Product</a></button>
         <button>Delete Product</button>
@@ -27,16 +42,25 @@
 
     <div class="data-categorys">
         <h1> Tabela Categorias </h1>
-        {% for d in categorys %}
-            {% for x in d %}
-                <p> {{ x }} </p>
-            {% endfor %}
-        {% endfor %}
+        <table>
+            <tr class="table-top">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>       
+                {% for d in categorys %}
+                    <tr>
+                    </tr>
+                    {% for x in d %}
+                        <td> {{ x }}</td>
+                    {% endfor %}
+                {% endfor %}   
+        </table>
 
         <button><a href='{{url_for("create_categorys")}}'>Create Category</a></button>
         <button>Delete Category</button>
         <button>Update Category</button>
-        
+
     </div>
     
 </body>
