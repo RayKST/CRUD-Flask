@@ -43,3 +43,7 @@ button {
 button:hover {
     background-color: darkcyan;
 }
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}

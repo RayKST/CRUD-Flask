@@ -15,49 +15,21 @@
 <body>
 
     <h1 >CRUD Produtos</h1>
-    <div class="data-products">
-        <h1> Tabela Produtos</h1>
-        <table>
-            <tr class="table-top">
-                <th>ID</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Description</th>
-                <th>Category Id</th>
-            </tr>       
-                {% for d in products %}
-                    <tr>
-                    </tr>
-                    {% for x in d %}
-                        <td> {{ x }}</td>
-                    {% endfor %}
-                {% endfor %}   
-        </table>
+    <div>
+        <h1> Botões Produtos</h1>
 
         <button><a href='{{url_for("create_products")}}'>Create Product</a></button>
+        <button><a href="{{url_for('view_product', id = 0)}}">View Products</a></button> <!-- arrumar essa tag-->
         <button>Delete Product</button>
         <button>Update Product</button>
         
     </div>
 
-    <div class="data-categorys">
-        <h1> Tabela Categorias </h1>
-        <table>
-            <tr class="table-top">
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-            </tr>       
-                {% for d in categorys %}
-                    <tr>
-                    </tr>
-                    {% for x in d %}
-                        <td> {{ x }}</td>
-                    {% endfor %}
-                {% endfor %}   
-        </table>
+    <div>
+        <h1> Botões Categorias </h1>
 
         <button><a href='{{url_for("create_categorys")}}'>Create Category</a></button>
+        <button><a href="{{url_for('view_category', id = 0)}}">View Categorys</a></button> <!-- arrumar essa tag-->
         <button>Delete Category</button>
         <button>Update Category</button>
 

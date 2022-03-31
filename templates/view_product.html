@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/main.css">
+    <link rel="stylesheet" href="/static/index.css">
+    <title>View Products</title>
+</head>
+<body>
+    {% if conditon %}
+        <form method="post">
+            <input type="number" name="ID_PRODUCT" placeholder="Insira o id de produto a ser consultado" required>
+            <button type="submit"> View Product </button>
+        </form>
+        <button><a href='{{url_for("view_product", id = 999999)}}'> View all Products </a></button>
+    {% else %}
+        <div class="data-products">
+            <h1> Tabela Produtos </h1>
+        
+            <table>
+                <tr class="table-top">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>Category Id</th>
+                </tr>       
+                    {% for d in info %}
+                        <tr>
+                        </tr>
+                        {% for x in d %}
+                            <td> {{ x }}</td>
+                        {% endfor %}
+                    {% endfor %}   
+            </table>
+
+        </div>
+    {% endif %}
+    <button><a href='{{url_for("index")}}'> Back to Index </a></button>
+
+</body>
+</html>

@@ -25,3 +25,9 @@ INSERT INTO {t} (ID, NAME, PRICE, DESCRIPTION, CATEGORY_ID) VALUES ({id}, ?, ?, 
 '''.format(t = table, id = ids[-1][-1] + 1), data) # Mesma logica
 
     con.commit()
+
+def CatchDataByID (table, id):
+    con=sqlite3.connect("crud_produtos.db")
+    cur = con.cursor()
+    cur.execute("SELECT * FROM {t} WHERE ID={id};".format(t = table, id = id))
+    return cur.fetchall()
