@@ -31,3 +31,22 @@ def CatchDataByID (table, id):
     cur = con.cursor()
     cur.execute("SELECT * FROM {t} WHERE ID={id};".format(t = table, id = id))
     return cur.fetchall()
+
+def UpdateData (table, data, id):
+    con=sqlite3.connect("crud_produtos.db")
+    cur = con.cursor()
+    if table == 'products':
+        cur.executemany("""
+    UPDATE {t}
+    SET NAME = ?, PRICE = ?, DESCRIPTION = ?, CATEGORY_ID = ?
+    WHERE ID = {id};
+    """.format(t = table, id = id), data)
+
+    elif table == 'category':
+        cur.executemany("""
+    UPDATE {t}
+    SET NAME = ?, DESCRIPTION = ?
+    WHERE ID = {id};
+    """.format(t = table, id = id), data)
+
+    con.commit()

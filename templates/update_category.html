@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/main.css">
+    <link rel="stylesheet" href="/static/table.css">
+    <link rel="stylesheet" href="/static/form_style.css">
+    <title>Update Category</title>
+</head>
+
+<body>
+    {% if conditon %}
+        <form method="post">
+            <input type="number" name="ID_CATEGORY" placeholder="Insira o id de categoria para ser atualizado" required>
+            <button type="submit"> Update Category </button>
+        </form>
+    {% else %}
+
+        <div class="data-category">
+            <h1> Informações Antigas da Categoria </h1>
+        
+            <table>
+                <tr class="table-top">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>       
+                    {% for d in info %}
+                        <tr>
+                        </tr>
+                        {% for x in d %}
+                            <td> {{ x }}</td>
+                        {% endfor %}
+                    {% endfor %}   
+            </table>
+
+        </div>
+
+        <li>O ID da categoria não pode ser mudado</li>
+        <form method="post">
+            <input type="text" name="NAME" placeholder="Novo nome da categoria" required>
+            <input type="text" name="DESCRIPTION" placeholder="Nova descrição da categoria" required>
+            <button type="submit"> Submit Category </button>
+        </form>
+        
+    {% endif %}
+
+    <button><a href='{{url_for("index")}}'> Back to Index </a></button>
+</body>
