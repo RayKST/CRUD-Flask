@@ -50,3 +50,14 @@ def UpdateData (table, data, id):
     """.format(t = table, id = id), data)
 
     con.commit()
+
+
+def DeleteData (table, id):
+    con=sqlite3.connect("crud_produtos.db")
+    cur = con.cursor()
+    cur.execute("""
+DELETE FROM {t}
+WHERE id = {id};
+""".format(t = table, id = id))
+
+    con.commit()

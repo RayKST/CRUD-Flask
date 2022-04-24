@@ -1,5 +1,5 @@
 from flask import Flask, redirect, render_template, request, url_for
-from dataOperations import CatchData, CreateData, CatchDataByID, UpdateData
+from dataOperations import CatchData, CreateData, CatchDataByID, UpdateData, DeleteData
 
 # Flask
 app = Flask(__name__)
@@ -110,3 +110,27 @@ def update_category(id):
             return render_template("update_category.html", info = CatchDataByID("category", id), conditon = True)
         else:
             return render_template("update_category.html", info = CatchDataByID("category", id), conditon = False)
+
+@app.route("/delete_product/<int:id>", methods=["POST", "GET"])
+def delete_product(id):
+    if request.method == 'POST':
+        id_product = request.form['ID_PRODUCT']
+        DeleteData("products", id_product)
+        return redirect(url_for("delete_product", id = id_product))
+    else:
+        if id == 0:
+            return render_template("delete_product.html", conditon = True)
+        else:
+            return render_template("delete_product.html", productID = id, conditon = False)
+
+@app.route("/delete_category/<int:id>", methods=["POST", "GET"])
+def delete_category(id):
+    if request.method == 'POST':
+        id_category = request.form['ID_CATEGORY']
+        DeleteData("category", id_category)
+        return redirect(url_for("delete_category", id = id_category))
+    else:
+        if id == 0:
+            return render_template("delete_category.html", conditon = True)
+        else:
+            return render_template("delete_category.html", categoryID = id, conditon = False)

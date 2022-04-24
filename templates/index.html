@@ -20,7 +20,7 @@
         <button><a href='{{url_for("create_products")}}'>Create Product</a></button>
         <button><a href="{{url_for('view_product', id = 0)}}">View Products</a></button> <!-- arrumar essa tag-->
         <button><a href="{{url_for('update_product', id = 0)}}">Update Product</button></a>
-        <button>Delete Product</button>     
+        <button><a href="{{url_for('delete_product', id = 0)}}">Delete Product</button></a>  
         
     </div>
 
@@ -30,7 +30,7 @@
         <button><a href='{{url_for("create_categorys")}}'>Create Category</a></button>
         <button><a href="{{url_for('view_category', id = 0)}}">View Categorys</a></button> <!-- arrumar essa tag-->
         <button><a href="{{url_for('update_category', id = 0)}}">Update Category</button></a>
-        <button>Delete Category</button>
+        <button><a href="{{url_for('delete_category', id = 0)}}">Delete Category</button></a>
 
     </div>
     
