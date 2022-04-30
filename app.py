@@ -4,11 +4,9 @@ from dataOperations import CatchData, CreateData, CatchDataByID, UpdateData, Del
 # Flask
 app = Flask(__name__)
 
-@app.route("/", methods = ["POST", "GET"])
+#Routes
+@app.route("/")
 def index():
-    if request.method == 'POST':
-        id_category = request.form["ID_CATEGORY"]
-        return redirect(url_for("view_category", id = id_category))
     return render_template("index.html")
 
 @app.route("/create_products", methods=['POST','GET'])
