@@ -1,10 +1,6 @@
-from flask import Flask, redirect, render_template, request, url_for
-from dataOperations import CatchData, CreateData, CatchDataByID, UpdateData, DeleteData
+from app import app
+from flask import render_template
 
-# Flask
-app = Flask(__name__)
-
-#Routes
 @app.route("/")
 def index():
     return render_template("index.html")

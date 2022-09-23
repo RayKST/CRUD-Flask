@@ -1,4 +1,3 @@
 __pycache__
-meuenv
+venv
 tests
-tests.db
