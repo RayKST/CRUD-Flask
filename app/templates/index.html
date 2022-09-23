@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/main.css">
+    <title>Flask Crud</title>
+</head>
+
+<body>
+
+    <h1 >CRUD Produtos</h1>
+    <div>
+        <h1> Botões Produtos</h1>
+
+        <button><a href='{{url_for("index")}}'>Create Product</a></button>
+        <button><a href='{{url_for("index")}}'>View Products</a></button> <!-- arrumar essa tag-->
+        <button><a href='{{url_for("index")}}'>Update Product</button></a>
+        <button><a href='{{url_for("index")}}'>Delete Product</button></a>  
+        
+    </div>
+
+    <div>
+        <h1> Botões Categorias </h1>
+
+        <button><a href='{{url_for("index")}}'>Create Category</a></button>
+        <button><a href='{{url_for("index")}}'>View Categorys</a></button> <!-- arrumar essa tag-->
+        <button><a href='{{url_for("index")}}'>Update Category</button></a>
+        <button><a href='{{url_for("index")}}'>Delete Category</button></a>
+
+    </div>
+    
+</body>
+</html>

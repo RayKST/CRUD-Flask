@@ -1,14 +1,10 @@
-from flask import Flask, redirect, render_template, request, url_for
-from dataOperations import CatchData, CreateData, CatchDataByID, UpdateData, DeleteData
+from app import app
+from flask import render_template
 
-# Flask
-app = Flask(__name__)
-
-#Routes
 @app.route("/")
 def index():
     return render_template("index.html")
-
+'''
 @app.route("/create_products", methods=['POST','GET'])
 def create_products():
     if request.method == 'POST':
@@ -132,3 +128,4 @@ def delete_category(id):
             return render_template("delete_category.html", conditon = True)
         else:
             return render_template("delete_category.html", categoryID = id, conditon = False)
+'''

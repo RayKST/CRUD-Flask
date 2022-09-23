@@ -1,4 +1,4 @@
 __pycache__
-meuenv
+venv
+.env
 tests
-tests.db
