@@ -4,7 +4,7 @@ from flask import render_template
 @app.route("/")
 def index():
     return render_template("index.html")
-
+'''
 @app.route("/create_products", methods=['POST','GET'])
 def create_products():
     if request.method == 'POST':
@@ -128,3 +128,4 @@ def delete_category(id):
             return render_template("delete_category.html", conditon = True)
         else:
             return render_template("delete_category.html", categoryID = id, conditon = False)
+'''
