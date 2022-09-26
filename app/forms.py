@@ -8,3 +8,8 @@ class ProductForm(FlaskForm):
     price = FloatField('Product Price', validators=[DataRequired()])
     category_id = IntegerField('Product Category ID', validators=[DataRequired()])
     submit = SubmitField('Create')
+
+class CategoryForm(FlaskForm):
+    name = StringField('Category Name', validators=[DataRequired()])
+    description = StringField('Category Description', validators=[DataRequired()])
+    submit = SubmitField('Create')

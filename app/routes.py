@@ -1,6 +1,6 @@
 from app import app, db
-from app.forms import ProductForm
-from app.models import Product
+from app.forms import ProductForm, CategoryForm
+from app.models import Product, Category
 from flask import render_template, redirect, url_for
 
 @app.route("/")
@@ -21,20 +21,20 @@ def create_products():
         return redirect(url_for('index'))
     return render_template('create_products.html', title='Create Product', form=form)
 
-'''
+
 @app.route("/create_categorys", methods=['POST','GET'])
 def create_categorys():
-    if request.method == 'POST':
-        name = request.form['NAME'] 
-        description = request.form['DESCRIPTION']
-        category_infos = [(name, description)]
-        CreateData("category", category_infos)
-        return redirect(url_for("index")) 
-        #Depois de realizar as operações na db fazer o redirect para o index
-        
-    else:
-        return render_template("create_categorys.html")
+    form = CategoryForm()
+    if form.validate_on_submit():
+        category = Category(
+            name = form.name.data, 
+            description = form.description.data)
+        db.session.add(category)
+        db.session.commit()
+        return redirect(url_for('index'))
+    return render_template('create_categorys.html', title='Create Category', form=form)
 
+'''
 @app.route("/view_category/<int:id>", methods = ['POST', 'GET'])
 def view_category(id):
     if request.method == 'POST':
