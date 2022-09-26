@@ -1,38 +1,40 @@
-from app import app
-from flask import render_template
+from app import app, db
+from app.forms import ProductForm, CategoryForm
+from app.models import Product, Category
+from flask import render_template, redirect, url_for
 
 @app.route("/")
 def index():
     return render_template("index.html")
-'''
+
 @app.route("/create_products", methods=['POST','GET'])
 def create_products():
-    if request.method == 'POST':
-        name = request.form['NAME'] 
-        price = request.form['PRICE']
-        description = request.form['DESCRIPTION']
-        category_id = request.form['CATEGORY_ID']
-        product_infos = [(name, price, description, category_id)]
-        CreateData("products", product_infos)
-        return redirect(url_for("index")) 
-        #Depois de realizar as operações na db fazer o redirect para o index
+    form = ProductForm()
+    if form.validate_on_submit():
+        product = Product(
+            name = form.name.data, 
+            description = form.description.data, 
+            price = form.price.data, 
+            category_id = form.category_id.data)
+        db.session.add(product)
+        db.session.commit()
+        return redirect(url_for('index'))
+    return render_template('create_products.html', title='Create Product', form=form)
 
-    else:
-        return render_template("create_products.html")
 
 @app.route("/create_categorys", methods=['POST','GET'])
 def create_categorys():
-    if request.method == 'POST':
-        name = request.form['NAME'] 
-        description = request.form['DESCRIPTION']
-        category_infos = [(name, description)]
-        CreateData("category", category_infos)
-        return redirect(url_for("index")) 
-        #Depois de realizar as operações na db fazer o redirect para o index
-        
-    else:
-        return render_template("create_categorys.html")
+    form = CategoryForm()
+    if form.validate_on_submit():
+        category = Category(
+            name = form.name.data, 
+            description = form.description.data)
+        db.session.add(category)
+        db.session.commit()
+        return redirect(url_for('index'))
+    return render_template('create_categorys.html', title='Create Category', form=form)
 
+'''
 @app.route("/view_category/<int:id>", methods = ['POST', 'GET'])
 def view_category(id):
     if request.method == 'POST':
