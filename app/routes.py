@@ -18,8 +18,8 @@ def create_products():
             category_id = form.category_id.data)
         db.session.add(product)
         db.session.commit()
-        return redirect(url_for('edit_profile'))
-    return render_template('create_products.html', title='Edit Profile', form=form)
+        return redirect(url_for('index'))
+    return render_template('create_products.html', title='Create Product', form=form)
 
 '''
 @app.route("/create_categorys", methods=['POST','GET'])
