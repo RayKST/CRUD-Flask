@@ -10,11 +10,11 @@
                 <th>Name</th>
                 <th>Description</th>
             </tr>        
-                {% for c in categorys %}
+                {% for category in categorys %}
                     <tr>
-                        <td> {{ c['id'] }} </td>
-                        <td> {{ c['name'] }} </td>
-                        <td> {{ c['description'] }} </td>
+                        <td> {{ category['id'] }} </td>
+                        <td> {{ category['name'] }} </td>
+                        <td> {{ category['description'] }} </td>
                     </tr>
                     {% endfor %}   
             </table>

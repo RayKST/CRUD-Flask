@@ -13,17 +13,17 @@
                     <th>Description</th>
                     <th>Category Id</th>
                 </tr>       
-                    {% for p in products %}
+                    {% for product in products %}
                         <tr>
-                            <td> {{ p['id'] }} </td>
-                            <td> {{ p['name'] }} </td>
-                            <td> {{ p['price'] }} </td>
-                            <td> {{ p['description'] }} </td>
-                            <td> {{ p['category_id'] }} </td>
+                            <td> {{ product['id'] }} </td>
+                            <td> {{ product['name'] }} </td>
+                            <td> {{ product['price'] }} </td>
+                            <td> {{ product['description'] }} </td>
+                            <td> {{ product['category_id'] }} </td>
                         </tr>
                     {% endfor %}   
             </table>
-            
+
         </div>
     <button><a href='{{url_for("index")}}'> Back to Index </a></button>
 
