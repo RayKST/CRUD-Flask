@@ -40,23 +40,14 @@ def view_product():
     products = Product.query.all()
     return render_template("view_product.html", title = 'View Products', products = products)
 
+
+@app.route("/view_category/")
+def view_category():
+    categorys = Category.query.all()
+    return render_template("view_category.html", title = 'View Categorys', categorys = categorys)
+
+
 '''
-@app.route("/view_category/<int:id>", methods = ['POST', 'GET'])
-def view_category(id):
-    if request.method == 'POST':
-        id_category = request.form['ID_CATEGORY']
-        return redirect(url_for("view_category", id = id_category))
-
-    else:
-        if id == 999999: # arrumar essa condição feia do código
-            return render_template("view_category.html", info = CatchData("category"), conditon = False)
-        elif id != 0:
-            return render_template("view_category.html", info = CatchDataByID("category", id), conditon = False)
-        else:
-            return render_template("view_category.html", info = CatchDataByID("category", id), conditon = True)
-
-
-
 @app.route("/update_product/<int:id>", methods=["POST", "GET"])
 def update_product(id):
     if request.method == 'POST':
