@@ -1,44 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/main.css">
-    <link rel="stylesheet" href="/static/table.css">
-    <title>View Category</title>
-</head>
-<body>
-    {% if conditon %}
-        <form method="post">
-            <input type="number" name="ID_CATEGORY" placeholder="Insira o id de categoria a ser consultado" required>
-            <button type="submit"> View Category </button>
-        </form>
-        <button><a href='{{url_for("view_category", id = 999999)}}'> View all Categorys </a></button>
-    {% else %}
-        <div class="data-categorys">
-            <h1> Tabela Categorias </h1>
+{% extends "base.html" %}
 
-            <table>
-                <tr class="table-top">
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                </tr>       
-                    {% for d in info %}
-                        <tr>
-                        </tr>
-                        {% for x in d %}
-                            <td> {{ x }}</td>
-                        {% endfor %}
+{% block content %}
+    <div class="data-categorys">
+        <h1> Tabela Categorias </h1>
+
+        <table>
+            <tr class="table-top">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>        
+                {% for category in categorys %}
+                    <tr>
+                        <td> {{ category['id'] }} </td>
+                        <td> {{ category['name'] }} </td>
+                        <td> {{ category['description'] }} </td>
+                    </tr>
                     {% endfor %}   
             </table>
-
+            
         </div>
-    {% endif %}
     <button><a href='{{url_for("index")}}'> Back to Index </a></button>
-</body>
-</html>
+
+{% endblock %}
